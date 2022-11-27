@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +17,8 @@ public class Main {
         sortPerson.add(p3);
         sortPerson.add(p4);
         sortPerson.add(p5);
+        Predicate<Person> isOld = Person  ->  Person.age<18;
+        sortPerson.removeIf(isOld);
         Collections.sort(sortPerson, new CompPerson());
         System.out.println(sortPerson);
     }
